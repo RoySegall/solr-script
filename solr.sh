@@ -15,7 +15,7 @@ fi;
 cd solr/example/solr/collection1/conf
 
 # Copy the settings file.
-- yes | cp ../../../../../4.x/* .
+- yes | cp ../../../../../config/* .
 
 # Start the server.
 cd solr/example/
