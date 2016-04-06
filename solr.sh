@@ -23,8 +23,25 @@ cd -
 # Start the server.
 cd solr/example/
 
-if [ $1 = "background" ]; then
-  java -jar start.jar > /dev/null 2>&1 < /dev/null &
-else
-  java -jar start.jar
-fi
+#
+while test $# -gt 0; do
+  case "$1" in
+    -h|--help)
+      echo " "
+      echo "solr-script by roy segall"
+      echo " "
+      echo "options:"
+      echo "-h, --help                      show brief help"
+      echo "-b, --background=TRUE/FALSE     specify if solr will execute in the background or not"
+      exit 0
+      ;;
+    -b|--background)
+      shift
+        java -jar start.jar > /dev/null 2>&1 < /dev/null &
+        exit 0
+      shift
+      ;;
+    esac
+done
+
+java -jar start.jar
