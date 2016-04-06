@@ -2,7 +2,7 @@
 
 # Download apache solr.
 if [ ! -f solr-4.7.2.zip ]; then
-  wget http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.zip 
+  wget http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.zip
 fi;
 
 # Exctracting apache solr from the zip file.
@@ -23,4 +23,4 @@ cd -
 # Start the server.
 cd solr/example/
 
-java -jar start.jar
+java -jar start.jar > /dev/null 2>&1 < /dev/null &
