@@ -23,4 +23,8 @@ cd -
 # Start the server.
 cd solr/example/
 
-java -jar start.jar > /dev/null 2>&1 < /dev/null &
+if [ $1 = "background" ]; then
+  java -jar start.jar > /dev/null 2>&1 < /dev/null &
+else
+  java -jar start.jar
+fi
