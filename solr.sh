@@ -23,7 +23,7 @@ cd -
 # Start the server.
 cd solr/example/
 
-#
+# Go through the flags.
 while test $# -gt 0; do
   case "$1" in
     -h|--help)
@@ -31,7 +31,6 @@ while test $# -gt 0; do
       echo "solr-script by roy segall"
       echo " "
       echo "options:"
-      echo "-h, --help                      show brief help"
       echo "-b, --background=TRUE/FALSE     specify if solr will execute in the background or not"
       exit 0
       ;;
