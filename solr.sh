@@ -12,6 +12,9 @@ do
     echo ${!i}
   fi;
 
+  if [ $var == "-b" ]; then
+    echo ${!i}
+  fi;
 done
 
 
