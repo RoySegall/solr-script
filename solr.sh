@@ -1,35 +1,31 @@
 #!/bin/bash
 background=false
 source=http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.zip
+i=1;
 
 # Go through the flags.
-while test $# -gt 0; do
-  case "$1" in
-    -h|--help)
-      echo " "
-      echo "solr-script by roy segall"
-      echo " "
-      echo "options:"
-      echo "-b, --background=TRUE/FALSE     specify if solr will execute in the background or not."
-      echo "-s, --source=TRUE/FALSE         specify the source destination to download solr from."
-      exit 0
-      ;;
-    -b|--background)
-      shift
-        background=true
-      shift
-      ;;
-    -s|--source)
-      shift
-        source=$1
-      shift
-      ;;
-    -sgd|--source-google-drive)
-      shift
-        source=$1
-      shift
-      ;;
-    esac
+for var in "$@"
+do
+
+  i=$((i + 1))
+
+  if [[ $var == "-h" || $var == "--help" ]]; then
+    echo " "
+    echo "solr-script by roy segall"
+    echo " "
+    echo "options:"
+    echo "-b, --background=TRUE / FALSE    specify if solr will execute in the background or not."
+    echo "-s, --source=The Source          specify the source destination to download solr from."
+    exit 0
+  fi;
+
+  if [[ $var == "-b" || $var == "--background" ]]; then
+    background=true
+  fi;
+
+  if [[ $var == "-s" || $var == "--source" ]]; then
+    source=${!i}
+  fi;
 done
 
 # Download apache solr.
@@ -55,6 +51,7 @@ cd -
 # Start the server.
 cd solr/example/
 
+# Activate the solr script.
 if [ "$background" = true ]; then
   java -jar start.jar > /dev/null 2>&1 < /dev/null &
   exit 0
