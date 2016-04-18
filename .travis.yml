@@ -1,5 +1,5 @@
 sudo: false
 
 script:
-  - bash solr.sh > output.txt
-  - echo output.txt
+  - bash solr.sh > output.txt &
+  - cat output.txt
