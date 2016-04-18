@@ -22,7 +22,6 @@ do
 
   if [[ $var == "-p" || $var == "--port" ]]; then
     solr_command+=" -Djetty.port="${!i}
-    echo $solr_command
   fi;
 
   if [[ $var == "-b" || $var == "--background" ]]; then
