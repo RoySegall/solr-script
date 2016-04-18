@@ -1,6 +1,6 @@
 #!/bin/bash
-background=false
 source=http://archive.apache.org/dist/lucene/solr/4.7.2/solr-4.7.2.zip
+solr_command="java -jar start.jar"
 i=1;
 
 # Go through the flags.
@@ -16,11 +16,17 @@ do
     echo "options:"
     echo "-b, --background=TRUE / FALSE    specify if solr will execute in the background or not."
     echo "-s, --source=The Source          specify the source destination to download solr from."
+    echo "-p, --port=The port number       specify the port number for the solr script before the -b flag (if you use it)."
     exit 0
   fi;
 
+  if [[ $var == "-p" || $var == "--port" ]]; then
+    solr_command+=" -Djetty.port="${!i}
+    echo $solr_command
+  fi;
+
   if [[ $var == "-b" || $var == "--background" ]]; then
-    background=true
+    solr_command+=" > /dev/null 2>&1 < /dev/null & "
   fi;
 
   if [[ $var == "-s" || $var == "--source" ]]; then
@@ -52,10 +58,4 @@ cd -
 cd solr/example/
 
 # Activate the solr script.
-if [ "$background" = true ]; then
-  java -jar start.jar > /dev/null 2>&1 < /dev/null &
-  exit 0
-else
-  java -jar start.jar
-  exit 0
-fi
+eval $solr_command
