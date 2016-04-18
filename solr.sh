@@ -14,8 +14,8 @@ do
     echo "solr-script by roy segall"
     echo " "
     echo "options:"
-    echo "-b, --background=TRUE/FALSE     specify if solr will execute in the background or not."
-    echo "-s, --source=TRUE/FALSE         specify the source destination to download solr from."
+    echo "-b, --background=TRUE / FALSE    specify if solr will execute in the background or not."
+    echo "-s, --source=The Source          specify the source destination to download solr from."
     exit 0
   fi;
 
@@ -27,7 +27,6 @@ do
     source=${!i}
   fi;
 done
-
 
 # Download apache solr.
 if [ ! -f solr-4.7.2.zip ]; then
@@ -52,6 +51,7 @@ cd -
 # Start the server.
 cd solr/example/
 
+# Activate the solr script.
 if [ "$background" = true ]; then
   java -jar start.jar > /dev/null 2>&1 < /dev/null &
   exit 0
