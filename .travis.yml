@@ -6,4 +6,5 @@ script:
   - cd tests
   - cp ../solr.sh solr.sh
   - bash solr.sh
+  - git clone https://github.com/sstephenson/bats.git
   - bats/bin/bats tests.bats
