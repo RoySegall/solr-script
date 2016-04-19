@@ -1,9 +1,9 @@
+sudo: false
 language: c
 
 script:
   - bin/bats --tap test
   - cd tests
   - cp ../solr.sh solr.sh
-
   - bash solr.sh
   - bats/bin/bats tests.bats
