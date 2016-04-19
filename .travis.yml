@@ -2,7 +2,6 @@ sudo: false
 language: c
 
 script:
-  - bin/bats --tap test
   - cd tests
   - cp ../solr.sh solr.sh
   - git clone https://github.com/sstephenson/bats.git
