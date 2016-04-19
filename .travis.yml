@@ -1,6 +1,4 @@
-sudo: false
-
 script:
   - cd tests
-  - bash install.sh
+  - sudo bash install.sh
   - bash tests.sh
