@@ -3,6 +3,5 @@ language: c
 
 script:
   - cd tests
-  - cp ../solr.sh solr.sh
   - git clone https://github.com/sstephenson/bats.git
   - bats/bin/bats tests.bats
