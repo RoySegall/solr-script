@@ -1,6 +1,9 @@
+language: c
+
 script:
+  - bin/bats --tap test
   - cd tests
-  - sudo bash install.sh
   - cp ../solr.sh solr.sh
+
   - bash solr.sh
-  - batsh tests.sh
+  - bats/bin/bats tests.bats
