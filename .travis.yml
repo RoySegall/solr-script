@@ -1,4 +1,6 @@
 script:
   - cd tests
   - sudo bash install.sh
-  - bash tests.sh
+  - cp ../solr.sh solr.sh
+  - bash solr.sh
+  - batsh tests.sh
