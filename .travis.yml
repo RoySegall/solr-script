@@ -1,5 +1,6 @@
 sudo: false
 
 script:
-  - bash solr.sh > output.txt &
-  - cat output.txt
+  - cd tests
+  - bash install.sh
+  - bash tests.sh
