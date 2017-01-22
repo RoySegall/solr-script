@@ -1,3 +1,8 @@
 .idea
 solr
 solr-4.7.2.zip
+tests/bats
+tests/solr
+tests/solr-4.7.2.zip
+tests/solr.sh
+tests/index.html
