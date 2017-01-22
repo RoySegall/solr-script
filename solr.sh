@@ -35,7 +35,7 @@ fi;
 
 # Exctracting apache solr from the zip file.
 if [ ! -d solr ]; then
-  unzip -o solr-4.7.2.zip
+  unzip -oq solr-4.7.2.zip
   mv solr-4.7.2 solr
 fi;
 
